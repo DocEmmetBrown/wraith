@@ -19,7 +19,7 @@ jobs:
         go-version: 1.17
 
     - name: Build
-      run: make build
+      run: make release
 
     - name: Test
       run: go test -v ./...
@@ -29,4 +29,8 @@ jobs:
       with:
         name: wraith
         path: bin
-
+        
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: bin/
